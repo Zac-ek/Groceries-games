@@ -1,0 +1,15 @@
+{
+  "name": "api-games",
+  "version": "1.0.0",
+  "description": "Api de juegos",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "author": "Zac-ek",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}
