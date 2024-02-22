@@ -1,6 +1,6 @@
 import express from "express";
 import morgan from "morgan";
-//import Router from "./routes/products.routes.js";
+import Router from "./routes/products.routes.js";
 import { config } from "dotenv";
 config();
 const app=express();
@@ -10,6 +10,6 @@ app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(morgan('dev'));
-//app.use('/', Router);
+app.use('/street', Router);
 
 export default app;
