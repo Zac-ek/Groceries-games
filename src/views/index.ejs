@@ -65,8 +65,20 @@
             </div><!-- /navbar -->
         </div><!-- /header -->
         <div data-role="content">
-            <div data-role="collapsibleset" data-filter="true" data-inset="true" id="collapsiblesetForFilter"
-                data-input="#searchForCollapsibleSet">
+            <div data-role="collapsibleset" data-theme="b" data-content-theme="b">
+                <% products.forEach((product)=>{ %>
+                    <div data-role="collapsible">
+                        <h3><%= product.name%></h3>
+                        <div>
+                            <p>Codigo: <%= product.code%></p>
+                            <p>Marca: <%= product.brand%>, Precio de compra: <%= product.price%></p>
+                            <p>Tipo: <%= product.type%>, Estatus: <%= product.status%></p>
+                            <p>Precio de compra: <%= product.price%></p>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+            <div data-role="collapsibleset" data-filter="true" data-inset="true" id="collapsiblesetForFilter" data-input="#searchForCollapsibleSet">
                 <% products.forEach((product)=>{ %>
                     <div data-role="collapsible" data-filtertext="<%= product.name%>">
                         <h3><%= product.name%></h3>
