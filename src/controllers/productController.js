@@ -9,6 +9,6 @@ export const getAll=(req,res)=>{
 export const insertOne=(req,res)=>{
     console.log(req.body)
     productDao.insertOne(req.body)
-    .then(result=>res.redirect('/'))
+    .then(result=>res.redirect('/street/'))
     .catch(err=>res.json({status: "Server unavaliable =/"}));
 }
