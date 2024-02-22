@@ -9,14 +9,106 @@
     <title>Street</title>
 </head>
 <body>
-    <div data-role="page" id="home">
+    <div data-role="page" id="home" data-theme="b">
         <div data-role="header" style="overflow:hidden;">
             <h1>Street - Technologies</h1>
             <div data-role="navbar">
                 <ul>
                     <li><a href="#products" data-icon="bullets">Productos</a></li>
                     <li><a href="#home" data-icon="home">Home</a></li>
-                    <li><a href="#" data-icon="shop">Compra</a></li>
+                    <li><a href="#shop" data-icon="shop">Compra</a></li>
+                </ul>
+            </div><!-- /navbar -->
+        </div><!-- /header -->
+        <div data-role="content">
+            <h2>Bienvenido a Street Technologies</h2>
+            <p>Somos una pagina de Tecnologia entregada a la alta calidad de nuestros productos en la busqueda de lo mejor para nuestros usuarios</p>
+            <div data-role="collapsibleset" data-theme="b" data-content-theme="b">
+                <% products.forEach((product)=>{ %>
+                    <div data-role="collapsible">
+                        <h3><%= product.name%></h3>
+                        <div>
+                            <p>Codigo: <%= product.code%></p>
+                            <p>Marca: <%= product.brand%>, Precio de compra: <%= product.price%></p>
+                            <p>Tipo: <%= product.type%>, Estatus: <%= product.status%></p>
+                            <p>Precio de compra: <%= product.price%></p>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+        <div data-role="footer">
+            <h5>Developed by Zac-ek</h5>
+        </div>
+    </div>
+    <div data-role="page" id="products" data-theme="b">
+        <div data-role="header" style="overflow:hidden;">
+            <h1>Street - Products</h1>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#products" data-icon="bullets">Productos</a></li>
+                    <li><a href="#home" data-icon="home">Home</a></li>
+                    <li><a href="#shop" data-icon="shop">Compra</a></li>
+                </ul>
+            </div><!-- /navbar -->
+        </div><!-- /header -->
+        <div data-role="content">
+            <h2>Carga nuevos productos a la API</h2>
+            <form action="/street/" method="POST">
+                <input type="text" name="code" id="txt_code" placeholder="Codigo" value="">
+
+                <input type="text" name="name" id="txt_name" placeholder="Nombre" value="">
+
+                <input type="text" name="brand" id="txt_brand" placeholder="Marca" value="">
+
+                <input type="text" name="price" id="txt_price" placeholder="Precio" value="">
+
+                <input type="number" name="stock" id="txt_stock" placeholder="Existencia" value="">
+
+                <select name="type" id="txt_type">
+                    <option value="" disabled>-Seleccionar-</option>
+                    <option value="Celular">Celular</option>
+                    <option value="Laptop">Laptop</option>
+                    <option value="PC">PC</option>
+                    <option value="Smartwatch">Smartwatch</option>
+                    <option value="Audifonos">Audifonos</option>
+                </select>
+                <select name="status" id="flip-2" data-role="slider">
+                    <option value="0">No</option>
+                    <option value="1">Si</option>
+                </select>
+
+                <input type="submit" value="Guardar">
+            </form>
+            <div data-role="collapsibleset" data-filter="true" data-inset="true" id="collapsiblesetForFilter" data-input="#searchForCollapsibleSet">
+                <% products.forEach((product)=>{ %>
+                    <div data-role="collapsible" data-filtertext="<%= product.name%>">
+                        <h3><%= product.name%></h3>
+                        <ul data-role="listview" data-inset="false">
+                            <li>Codigo: <%= product.code%></li>
+                            <li>Marca: <%= product.brand%></li>
+                            <li>Precio de compra: <%= product.price%></li>
+                            <li>Existencias: <%= product.stock%></li>
+                            <li>Tipo: <%= product.type%></li>
+                            <li>Estatus: <%= product.status%></li>
+                            <li><a href="#" class="ui-btn">Editar</a></li>
+                        </ul>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+        <div data-role="footer">
+            <h5>Developed by Zac-ek</h5>
+        </div>
+    </div>
+    <div data-role="page" id="shop" data-theme="b">
+        <div data-role="header" style="overflow:hidden;">
+            <h1>Street - Shoping</h1>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#products" data-icon="bullets">Productos</a></li>
+                    <li><a href="#home" data-icon="home">Home</a></li>
+                    <li><a href="#shop" data-icon="shop">Compra</a></li>
                 </ul>
             </div><!-- /navbar -->
         </div><!-- /header -->
@@ -47,54 +139,7 @@
 
                 <input type="submit" value="Guardar">
             </form>
-                        
-        </div>
-        <div data-role="footer">
-            <h5>Developed by Zac-ek</h5>
-        </div>
-    </div>
-    <div data-role="page" id="products">
-        <div data-role="header" style="overflow:hidden;">
-            <h1>Street - Products</h1>
-            <div data-role="navbar">
-                <ul>
-                    <li><a href="#products" data-icon="bullets">Productos</a></li>
-                    <li><a href="#home" data-icon="home">Home</a></li>
-                    <li><a href="#" data-icon="shop">Compra</a></li>
-                </ul>
-            </div><!-- /navbar -->
-        </div><!-- /header -->
-        <div data-role="content">
-            <div data-role="collapsibleset" data-theme="b" data-content-theme="b">
-                <% products.forEach((product)=>{ %>
-                    <div data-role="collapsible">
-                        <h3><%= product.name%></h3>
-                        <div>
-                            <p>Codigo: <%= product.code%></p>
-                            <p>Marca: <%= product.brand%>, Precio de compra: <%= product.price%></p>
-                            <p>Tipo: <%= product.type%>, Estatus: <%= product.status%></p>
-                            <p>Precio de compra: <%= product.price%></p>
-                        </div>
-                    </div>
-                <% }) %>
-            </div>
-            <div data-role="collapsibleset" data-filter="true" data-inset="true" id="collapsiblesetForFilter" data-input="#searchForCollapsibleSet">
-                <% products.forEach((product)=>{ %>
-                    <div data-role="collapsible" data-filtertext="<%= product.name%>">
-                        <h3><%= product.name%></h3>
-                        <ul data-role="listview" data-inset="false">
-                            <li>Codigo: <%= product.code%></li>
-                            <li>Marca: <%= product.brand%></li>
-                            <li>Precio de compra: <%= product.price%></li>
-                            <li>Existencias: <%= product.stock%></li>
-                            <li>Tipo: <%= product.type%></li>
-                            <li>Estatus: <%= product.status%></li>
-                            <li><a href="#" class="ui-btn">Editar</a></li>
-                            <li><a href="#" class="ui-btn">Eliminar</a></li>
-                        </ul>
-                    </div>
-                <% }) %>
-            </div>
+            
         </div>
         <div data-role="footer">
             <h5>Developed by Zac-ek</h5>
