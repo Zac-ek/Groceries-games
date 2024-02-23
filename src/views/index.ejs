@@ -15,15 +15,15 @@
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 20px;
+    padding-right: 6px;
 }
 .card {
     margin: 10px;
     padding: 10px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #363636;
-    width: calc(45% - 20px);
-    max-width: 400px;
+    background-color: #000000a8;
+    /* width: calc(45% - 20px);
+    max-width: 400px; */
     transition: transform 0.3s ease;
 }
 
@@ -48,7 +48,7 @@
 
 .card p {
     margin: 5px 0;
-    color: #ddd6d6;
+    color: #ffffff;
 }
 
 .card-actions {
@@ -69,9 +69,27 @@
 .card-actions a:hover {
     background-color: #45a049;
 }
+.collage {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.imagen {
+  width: 300px; /* Tamaño base de las imágenes */
+  height: 300px; /* Tamaño base de las imágenes */
+  transition: transform 0.3s ease;
+  padding-left: 20px;
+  margin-top: 15px;
+}
+
+.imagen:hover {
+  transform: scale(1.2); /* Escala de la imagen al pasar el cursor sobre ella */
+}
     </style>
     <div data-role="page" id="home" data-theme="b">
-        <div data-role="header" style="overflow:hidden;">
+        <div data-role="header" style="overflow:hidden;" data-theme="b">
             <h1>Street - Technologies</h1>
             <div data-role="navbar">
                 <ul>
@@ -81,9 +99,19 @@
                 </ul>
             </div><!-- /navbar -->
         </div><!-- /header -->
-        <div data-role="content">
-            <h2>Bienvenido a Street Technologies</h2>
-            <p>Somos una pagina de Tecnologia entregada a la alta calidad de nuestros productos en la busqueda de lo mejor para nuestros usuarios</p>
+        <div data-role="content" style="background-color: #19285ad0;">
+            <h2 style="color: #ffffff;">Bienvenido a Street Technologies</h2>
+            <div class="collage">
+                <img src="https://images.pexels.com/photos/2115257/pexels-photo-2115257.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="imagen" alt="Imagen 1">
+                <img src="https://images.pexels.com/photos/2399840/pexels-photo-2399840.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="imagen" alt="Imagen 2">
+                <!-- Agrega más imágenes según sea necesario -->
+            </div>
+            <p style="color: #ffffff;">Somos una pagina de Tecnologia entregada a la alta calidad de nuestros productos en la busqueda de lo mejor para nuestros usuarios</p>
+            <div class="collage">
+                <img src="https://images.pexels.com/photos/1029757/pexels-photo-1029757.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="imagen" alt="Imagen 2">
+                <img src="https://images.pexels.com/photos/5081399/pexels-photo-5081399.jpeg?auto=compress&cs=tinysrgb&w=600" class="imagen" alt="Imagen 2">
+                <!-- Agrega más imágenes según sea necesario -->
+            </div>
             <div class="card-container">
                 <% products.forEach((product)=>{ %>
                     <div class="card">
@@ -94,14 +122,14 @@
                             <p><strong>Tipo:</strong> <%= product.type%> | <strong>Estatus:</strong> <%= product.status%></p>
                             <p><strong>Existencia:</strong> <%= product.stock %></p>
                             <form action="/sh/<%=product.code%>" method="POST">
-                                <input type="submit" value="Comprar">
+                                <input type="submit" value="Comprar" style="background-color: #ffffff;">
                             </form>
                         </div>
                     </div>
                 <% }) %>
             </div>
         </div>
-        <div data-role="footer">
+        <div data-role="footer" data-theme="b">
             <h5>Developed by Zac-ek</h5>
         </div>
     </div>
