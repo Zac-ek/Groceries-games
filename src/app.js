@@ -11,5 +11,4 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(morgan('dev'));
 app.use('/street', Router);
-
 export default app;
