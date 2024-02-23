@@ -1,7 +1,7 @@
 import { Router } from "express";
 import {getAll,insertOne,getOne,updateOne,shopOne,routeHome,routeShop,routeProducts} from "../controllers/productController.js";
 const router=Router();
-router.get("/home", routeHome);
+router.get("/", routeHome);
 router.get("/products", routeProducts);
 router.get("/shop", routeShop);
 router.get("/:code", getOne);
