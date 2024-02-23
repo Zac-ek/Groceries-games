@@ -20,13 +20,13 @@ export const getOne=(req,res)=>{
 export const insertOne=(req,res)=>{
     console.log(req.body)
     productDao.insertOne(req.body)
-    .then(result=>res.redirect('/home'))
+    .then(result=>res.redirect('/'))
     .catch(err=>res.json({status: "Server unavaliable =/"}));
 }
 export const updateOne=(req,res)=>{
     console.log(req.body)
     productDao.updateOne(req.params.code, req.body)
-    .then(result=>res.redirect('/home'))
+    .then(result=>res.redirect('/'))
     .catch(err=>res.json({status: "Server unavaliable =/"}));
 }
 export const shopOne=async(req,res)=>{
@@ -36,7 +36,7 @@ export const shopOne=async(req,res)=>{
         product.stock = parseInt(product.stock) - 1;
         console.log(product)
         await productDao.updateOne(req.params.code, product)
-        .then(result=>res.redirect('/home'))
+        .then(result=>res.redirect('/'))
         .catch(err=>res.json({status: "Server unavaliable =/"}));
     } catch (err) {
         console.error(err);
