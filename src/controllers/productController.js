@@ -29,3 +29,17 @@ export const updateOne=(req,res)=>{
     .then(result=>res.redirect('/street/'))
     .catch(err=>res.json({status: "Server unavaliable =/"}));
 }
+export const shopOne=async(req,res)=>{
+    try {
+        let product = await productDao.getOne(req.params.code);
+        console.log(product)
+        product.stock = parseInt(product.stock) - 1;
+        console.log(product)
+        await productDao.updateOne(req.params.code, product)
+        .then(result=>res.redirect('/street/'))
+        .catch(err=>res.json({status: "Server unavaliable =/"}));
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ status: "Error en el servidor" });
+    }
+}

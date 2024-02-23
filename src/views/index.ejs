@@ -9,6 +9,67 @@
     <title>Street</title>
 </head>
 <body>
+    <style>
+.card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+.card {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #363636;
+    width: calc(45% - 20px);
+    max-width: 400px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.card-content {
+    padding-bottom: 10px;
+}
+
+.card h3 {
+    margin-top: 0;
+    color: #ffffff;
+}
+
+.card p {
+    margin: 5px 0;
+    color: #ddd6d6;
+}
+
+.card-actions {
+    text-align: center;
+}
+
+.card-actions a {
+    display: inline-block;
+    margin: 5px;
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.card-actions a:hover {
+    background-color: #45a049;
+}
+    </style>
     <div data-role="page" id="home" data-theme="b">
         <div data-role="header" style="overflow:hidden;">
             <h1>Street - Technologies</h1>
@@ -23,16 +84,18 @@
         <div data-role="content">
             <h2>Bienvenido a Street Technologies</h2>
             <p>Somos una pagina de Tecnologia entregada a la alta calidad de nuestros productos en la busqueda de lo mejor para nuestros usuarios</p>
-            <div data-role="collapsibleset" data-theme="b" data-content-theme="b" data-input="#searchForCollapsibleSet">
+            <div class="card-container">
                 <% products.forEach((product)=>{ %>
-                    <div data-role="collapsible">
+                    <div class="card">
                         <h3><%= product.name%></h3>
                         <div>
                             <p><strong>Codigo:</strong> <%= product.code%></p>
                             <p><strong>Marca:</strong> <%= product.brand%> | <strong>Precio de compra:</strong> <%= product.price%></p>
                             <p><strong>Tipo:</strong> <%= product.type%> | <strong>Estatus:</strong> <%= product.status%></p>
                             <p><strong>Existencia:</strong> <%= product.stock %></p>
-                            <a href="#" class="ui-btn" onclick="">Comprar</a>
+                            <form action="/street/sh/<%=product.code%>" method="POST">
+                                <input type="submit" value="Comprar">
+                            </form>
                         </div>
                     </div>
                 <% }) %>
