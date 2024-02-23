@@ -21,7 +21,7 @@
             </div><!-- /navbar -->
         </div><!-- /header -->
         <div data-role="content">
-            <form action="/street/<%=product.code%>" method="POST">
+            <form action="/<%=product.code%>" method="POST">
                 <input type="text" name="code" id="txt_code" placeholder="Codigo" value="<%= product.code%>" disabled>
 
                 <input type="text" name="name" id="txt_name" placeholder="Nombre" value="<%= product.name%>">

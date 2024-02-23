@@ -93,7 +93,7 @@
                             <p><strong>Marca:</strong> <%= product.brand%> | <strong>Precio de compra:</strong> <%= product.price%></p>
                             <p><strong>Tipo:</strong> <%= product.type%> | <strong>Estatus:</strong> <%= product.status%></p>
                             <p><strong>Existencia:</strong> <%= product.stock %></p>
-                            <form action="/street/sh/<%=product.code%>" method="POST">
+                            <form action="/sh/<%=product.code%>" method="POST">
                                 <input type="submit" value="Comprar">
                             </form>
                         </div>
@@ -132,7 +132,7 @@
                             <li><strong>Existencias:</strong> <%= product.stock%></li>
                             <li><strong>Tipo:</strong> <%= product.type%></li>
                             <li><strong>Estatus:</strong> <%= product.status%></li>
-                            <li><a href="/street/<%= product.code%>" class="ui-btn">Editar</a></li>
+                            <li><a href="/<%= product.code%>" class="ui-btn">Editar</a></li>
                         </ul>
                     </div>
                 <% }) %>
@@ -155,7 +155,7 @@
         </div><!-- /header -->
         <div data-role="content">
             <h2>Carga nuevos productos a la pagina</h2>
-            <form action="/street/" method="POST">
+            <form action="/" method="POST">
                 <input type="text" name="code" id="txt_code" placeholder="Codigo" value="">
 
                 <input type="text" name="name" id="txt_name" placeholder="Nombre" value="">
