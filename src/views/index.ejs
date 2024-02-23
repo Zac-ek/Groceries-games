@@ -75,9 +75,9 @@
             <h1>Street - Technologies</h1>
             <div data-role="navbar">
                 <ul>
-                    <li><a href="#products" data-icon="bullets">Productos</a></li>
-                    <li><a href="#home" data-icon="home">Home</a></li>
-                    <li><a href="#shop" data-icon="plus">Añadir</a></li>
+                    <li><a href="/products" data-icon="bullets">Productos</a></li>
+                    <li><a href="/home" data-icon="home">Home</a></li>
+                    <li><a href="/shop" data-icon="plus">Añadir</a></li>
                 </ul>
             </div><!-- /navbar -->
         </div><!-- /header -->
@@ -100,87 +100,6 @@
                     </div>
                 <% }) %>
             </div>
-        </div>
-        <div data-role="footer">
-            <h5>Developed by Zac-ek</h5>
-        </div>
-    </div>
-    <div data-role="page" id="products" data-theme="b">
-        <div data-role="header" style="overflow:hidden;">
-            <h1>Street - Products</h1>
-            <div data-role="navbar">
-                <ul>
-                    <li><a href="#products" data-icon="bullets">Productos</a></li>
-                    <li><a href="#home" data-icon="home">Home</a></li>
-                    <li><a href="#shop" data-icon="plus">Añadir</a></li>
-                </ul>
-            </div><!-- /navbar -->
-        </div><!-- /header -->
-        <div data-role="content">
-            <form>
-                <input data-type="search" id="searchForCollapsibleSet">
-            </form>
-            <div data-role="collapsibleset" data-filter="true" data-inset="true" id="collapsiblesetForFilter"
-                data-input="#searchForCollapsibleSet">
-                <% products.forEach((product)=>{ %>
-                    <div data-role="collapsible" data-filtertext="<%= product.description%>">
-                        <h3><%= product.name%></h3>
-                        <ul data-role="listview" data-inset="false">
-                            <li><strong>Codigo:</strong> <%= product.code%></li>
-                            <li><strong>Marca:</strong> <%= product.brand%></li>
-                            <li><strong>Precio de compra:</strong> <%= product.price%></li>
-                            <li><strong>Existencias:</strong> <%= product.stock%></li>
-                            <li><strong>Tipo:</strong> <%= product.type%></li>
-                            <li><strong>Estatus:</strong> <%= product.status%></li>
-                            <li><a href="/<%= product.code%>" class="ui-btn">Editar</a></li>
-                        </ul>
-                    </div>
-                <% }) %>
-            </div>
-        </div>
-        <div data-role="footer">
-            <h5>Developed by Zac-ek</h5>
-        </div>
-    </div>
-    <div data-role="page" id="shop" data-theme="b">
-        <div data-role="header" style="overflow:hidden;">
-            <h1>Street - Manage</h1>
-            <div data-role="navbar">
-                <ul>
-                    <li><a href="#products" data-icon="bullets">Productos</a></li>
-                    <li><a href="#home" data-icon="home">Home</a></li>
-                    <li><a href="#shop" data-icon="plus">Añadir</a></li>
-                </ul>
-            </div><!-- /navbar -->
-        </div><!-- /header -->
-        <div data-role="content">
-            <h2>Carga nuevos productos a la pagina</h2>
-            <form action="/" method="POST">
-                <input type="text" name="code" id="txt_code" placeholder="Codigo" value="">
-
-                <input type="text" name="name" id="txt_name" placeholder="Nombre" value="">
-
-                <input type="text" name="brand" id="txt_brand" placeholder="Marca" value="">
-
-                <input type="text" name="price" id="txt_price" placeholder="Precio" value="">
-
-                <input type="number" name="stock" id="txt_stock" placeholder="Existencia" value="">
-
-                <select name="type" id="txt_type">
-                    <option value="" disabled>-Seleccionar-</option>
-                    <option value="Celular">Celular</option>
-                    <option value="Laptop">Laptop</option>
-                    <option value="PC">PC</option>
-                    <option value="Smartwatch">Smartwatch</option>
-                    <option value="Audifonos">Audifonos</option>
-                </select>
-                <select name="status" id="flip-2" data-role="slider">
-                    <option value="0">No</option>
-                    <option value="1">Si</option>
-                </select>
-
-                <input type="submit" value="Guardar">
-            </form>
         </div>
         <div data-role="footer">
             <h5>Developed by Zac-ek</h5>

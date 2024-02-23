@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <title>Street</title>
+</head>
+<body>
+    <div data-role="page" id="products" data-theme="b">
+        <div data-role="header" style="overflow:hidden;">
+            <h1>Street - Products</h1>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="/products" data-icon="bullets">Productos</a></li>
+                    <li><a href="/home" data-icon="home">Home</a></li>
+                    <li><a href="/shop" data-icon="plus">Añadir</a></li>
+                </ul>
+            </div><!-- /navbar -->
+        </div><!-- /header -->
+        <div data-role="content">
+            <form>
+                <input data-type="search" id="searchForCollapsibleSet">
+            </form>
+            <div data-role="collapsibleset" data-filter="true" data-inset="true" id="collapsiblesetForFilter"
+                data-input="#searchForCollapsibleSet">
+                <% products.forEach((product)=>{ %>
+                    <div data-role="collapsible" data-filtertext="<%= product.description%>">
+                        <h3><%= product.name%></h3>
+                        <ul data-role="listview" data-inset="false">
+                            <li><strong>Codigo:</strong> <%= product.code%></li>
+                            <li><strong>Marca:</strong> <%= product.brand%></li>
+                            <li><strong>Precio de compra:</strong> <%= product.price%></li>
+                            <li><strong>Existencias:</strong> <%= product.stock%></li>
+                            <li><strong>Tipo:</strong> <%= product.type%></li>
+                            <li><strong>Estatus:</strong> <%= product.status%></li>
+                            <li><a href="/<%= product.code%>" class="ui-btn">Editar</a></li>
+                        </ul>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+        <div data-role="footer">
+            <h5>Developed by Zac-ek</h5>
+        </div>
+    </div>
+</body>
+</html>
